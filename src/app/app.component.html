@@ -6,7 +6,9 @@
       <br>
       <br>
       <div class="list-group">
-        <a 
+        <a
+          [class.active] = "q === selectedQuiz"
+          (click)="selectQuiz(q)" 
           href="#"
           *ngFor="let q of quizzes" 
           class="list-group-item list-group-item-action">
@@ -14,7 +16,15 @@
         </a>
       </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8" *ngIf="!selectedQuiz">
+      <br>
+      <div class="card">
+        <div class="card-body">
+          Select or add a new quiz...
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8" *ngIf="selectedQuiz">
       <br>
       <button class="btn btn-outline-success">Save</button>
       <button class="btn btn-link">Cancel</button>
@@ -25,7 +35,7 @@
           General
         </div>
         <div class="card-body">
-          Coming soon!
+          {{ selectedQuiz.name }}
         </div>
       </div>
       <br>
