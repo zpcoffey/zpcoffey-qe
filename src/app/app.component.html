@@ -1,5 +1,17 @@
 <div class="container">
-  <div class="row">
+  <div class="row" *ngIf="serviceDown">
+    <div class="col-md-12">
+      <br>
+      <div class="card">
+          <div class="card-body">
+            <h3>
+                Quiz service down. Please try again later. Sorry : - (
+            </h3>
+          </div>
+      </div>      
+    </div>
+  </div>
+  <div class="row" *ngIf="!serviceDown">
     <div class="col-md-4">
       <br>
       <button 
