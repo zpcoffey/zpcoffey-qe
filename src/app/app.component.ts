@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from './quiz.service';
 
+interface QuizDisplay {
+  name: string;
+  numberOfQuestions: number;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,8 +18,11 @@ export class AppComponent implements OnInit {
     // of the component fails : - (
   }
 
+  quizzes: QuizDisplay[] = [];
+
   ngOnInit() {
-    console.log(this.qSvc.getQuizzes());
+    //console.log(this.qSvc.getQuizzes());
+    this.quizzes = this.qSvc.getQuizzes();
   };
 
   title = 'quiz-editor';
