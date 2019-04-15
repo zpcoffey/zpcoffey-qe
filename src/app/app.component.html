@@ -70,7 +70,17 @@
           Questions
         </div>
         <div class="card-body">
-          Coming soon!
+          <button class="btn btn-outline-primary">Add New Question</button>
+          <br>
+          <br>
+          <div class="row" *ngFor="let question of selectedQuiz.questions">
+            <div class="col-md-9">
+              {{ question.name }}
+            </div>
+            <div class="col-md-3">
+              <button class="btn btn-link text-danger">Remove</button>
+            </div>
+          </div>
         </div>
       </div>
       <br>
