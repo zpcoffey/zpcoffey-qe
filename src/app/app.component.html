@@ -75,11 +75,17 @@
           <br>
           <div class="row" *ngFor="let question of selectedQuiz.questions">
             <div class="col-md-9">
-              {{ question.name }}
+              <input 
+                type="text" 
+                [(ngModel)]="question.name"
+                class="form-control"
+              />
             </div>
             <div class="col-md-3">
               <button class="btn btn-link text-danger">Remove</button>
             </div>
+            <br>
+            <br>
           </div>
         </div>
       </div>
