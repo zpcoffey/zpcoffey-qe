@@ -70,7 +70,12 @@
           Questions
         </div>
         <div class="card-body">
-          <button class="btn btn-outline-primary">Add New Question</button>
+          <button 
+            class="btn btn-outline-primary"
+            (click)="addNewQuestion()"
+          >
+            Add New Question
+          </button>
           <br>
           <br>
           <div class="row" *ngFor="let question of selectedQuiz.questions">
