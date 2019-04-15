@@ -49,6 +49,11 @@ export class AppComponent implements OnInit {
     this.selectedQuiz = newQuiz; 
   }
 
+  removeQuestion(questionToRemove) {
+    this.selectedQuiz.questions = this.selectedQuiz.questions
+      .filter(x => x !== questionToRemove);
+  }
+  
   serviceDown = false;
 
   ngOnInit() {
