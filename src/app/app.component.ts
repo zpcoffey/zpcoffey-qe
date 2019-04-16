@@ -162,7 +162,7 @@ export class AppComponent implements OnInit {
 
     // await is a valid variable name...
     // unless it is an async method ! ! !
-    let await = 0;
+    //let await = 0;
 
   }
 }
