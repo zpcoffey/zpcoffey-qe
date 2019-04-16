@@ -157,4 +157,12 @@ export class AppComponent implements OnInit {
       console.log(error);
     }
   }
+
+  /*async*/ testAsyncKeyword() {
+
+    // await is a valid variable name...
+    // unless it is an async method ! ! !
+    let await = 0;
+
+  }
 }
