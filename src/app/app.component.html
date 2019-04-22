@@ -31,14 +31,13 @@
           (click)="selectQuiz(q)" 
           href="#"
           *ngFor="let q of quizzes" 
-          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+          [style.text-decoration]="q.markedForDelete ? 'line-through' : 'inherit'"
+        >
           {{ q.name }}
-          <span 
-            class="badge badge-secondary"
-            [class.bg-danger]="q.questions.length === 0"
-          >
-            {{ q.questions.length }}
-          </span>
+          <small>
+            {{ q.questions.length }} questions
+          </small>
         </a>
       </div>
     </div>
@@ -52,7 +51,15 @@
     </div>
     <div class="col-md-8" *ngIf="selectedQuiz">
       <br>
-      <button class="btn btn-outline-success">Save</button>
+      <button class="btn btn-outline-success">
+        Save
+        <span 
+          class="badge badge-danger ml-1"
+          *ngIf="numberOfDeletedQuizzes > 0"
+        >
+          - {{ numberOfDeletedQuizzes }}
+        </span>
+      </button>
       <button class="btn btn-link">Cancel</button>
       <br>
       <br>
