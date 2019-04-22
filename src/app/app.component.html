@@ -108,7 +108,16 @@
           Other
         </div>
         <div class="card-body">
-          <button class="btn btn-outline-danger">Delete This Quiz</button>
+          <div class="form-check">
+            <label class="form-check-label text-danger">
+                <input 
+                  type="checkbox" 
+                  class="form-check-input" 
+                  [(ngModel)]="selectedQuiz.markedForDelete"
+                >
+                Mark for Delete
+              </label>
+          </div>
         </div>
       </div>
     </div>
