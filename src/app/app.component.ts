@@ -3,7 +3,10 @@ import { QuizService } from './quiz.service';
 
 interface QuizDisplay {
   name: string;
+  originalName: string;
+
   questions: QuestionDisplay[];
+  
   markedForDelete: boolean;
 }
 
@@ -35,6 +38,7 @@ export class AppComponent implements OnInit {
     // Create the new quiz.
     const newQuiz: QuizDisplay = {
       name: "Untitled Quiz"
+      , originalName: "Untitled Quiz"
       , questions: []
       , markedForDelete: false
     };
@@ -75,6 +79,7 @@ export class AppComponent implements OnInit {
 
         this.quizzes = (<any[]> data).map(x => ({ 
           name: x.name
+          , originalName: x.name
           , questions: x.questions
           , markedForDelete: false
         }));
@@ -89,6 +94,10 @@ export class AppComponent implements OnInit {
 
   get numberOfDeletedQuizzes() {
     return this.quizzes.filter(x => x.markedForDelete).length;
+  }
+
+  get numberOfEditedQuizzes() {
+    return this.quizzes.filter(x => x.name !== x.originalName).length;
   }
 
   title = 'quiz-editor';
