@@ -51,7 +51,10 @@
     </div>
     <div class="col-md-8" *ngIf="selectedQuiz">
       <br>
-      <button class="btn btn-outline-success">
+      <button 
+        class="btn btn-outline-success"
+        (click)="saveBatchEdits()"
+      >
         Save Quizzes
         <span 
           class="badge badge-success ml-1"
