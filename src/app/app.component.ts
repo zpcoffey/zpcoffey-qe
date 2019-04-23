@@ -74,26 +74,29 @@ export class AppComponent implements OnInit {
   serviceDown = false;
 
   ngOnInit() {
+    this.loadAllQuizzes();
+  }
 
-    this.qSvc.getQuizzes().subscribe(
-      (data) => {
-        console.log(data);
+  private loadAllQuizzes() {
+    this.qSvc.getQuizzes().subscribe((data) => {
+      console.log(data);
+      this.quizzes = (<any[]>data).map(x => ({
+        name: x.name,
+        originalName: x.name,
+        questions: x.questions,
+        questionsChecksum: x.questions.map(x => x.name).join('~'),
+        markedForDelete: false
+      }));
+    }, (error) => {
+      console.log(error);
+      this.serviceDown = true;
+    });
+  }
 
-        this.quizzes = (<any[]> data).map(x => ({ 
-          name: x.name
-          , originalName: x.name
-          , questions: x.questions
-          , questionsChecksum: x.questions.map(x => x.name).join('~')
-          , markedForDelete: false
-        }));
-      }
-      , (error) => {
-        console.log(error);
-        this.serviceDown = true;
-      }
-    );
-
-  };
+  cancelBatchEdits() {
+    this.loadAllQuizzes();
+    this.selectQuiz(undefined);
+  }
 
   get numberOfDeletedQuizzes() {
     return this.quizzes.filter(x => x.markedForDelete).length;
