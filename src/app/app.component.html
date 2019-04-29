@@ -16,7 +16,7 @@
       <br>
       <button 
         (click)="addNewQuiz()"
-        class="btn btn-outline-primary"
+        class="btn btn-outline-success"
         >
           Add New Quiz
       </button>
@@ -52,7 +52,7 @@
     <div class="col-md-8" *ngIf="selectedQuiz">
       <br>
       <button 
-        class="btn btn-outline-success"
+        class="btn btn-outline-primary"
         (click)="saveBatchEdits()"
       >
         Save Quizzes
@@ -76,7 +76,7 @@
         </span>
       </button>
       <button 
-        class="btn btn-link"
+        class="btn btn-link text-danger"
         (click)="cancelBatchEdits()"
       >
         Cancel
@@ -101,7 +101,7 @@
         </div>
         <div class="card-body">
           <button 
-            class="btn btn-outline-primary"
+            class="btn btn-outline-success"
             (click)="addNewQuestion()"
           >
             Add New Question
